@@ -1,0 +1,9 @@
+@media screen and (min-width: 768px) {
+    #logo-abbr{
+      display: none;
+    }
+    #logo-compact{
+      display: none;
+    }
+
+}

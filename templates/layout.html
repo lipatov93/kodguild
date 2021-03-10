@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+{% include 'header.html' %}
+{% block create-link %}{% endblock %}
+</head>
+<body>
+
+  <div id="preloader">
+    <div class="sk-three-bounce">
+      <div class="sk-child sk-bounce1"></div>
+      <div class="sk-child sk-bounce2"></div>
+      <div class="sk-child sk-bounce3"></div>
+    </div>
+  </div>
+  <div id="main-wrapper">
+    <div class="nav-header">
+      <a href="index.html" class="brand-logo">
+        <img class="logo-abbr" style="max-width: 65px; margin-bottom: 15px;" id="logo-abbr" src="{% static 'images/logo-ico.png' %}" alt="">
+
+        <img class="brand-title" style="max-width: 100%;margin: 0px;" src="{% static 'images/logo.png' %}" alt="">
+      </a>
+      <div class="nav-control">
+        <div class="hamburger">
+          <span style="background: #666666 !important;" class="line"></span><span style="background: #666666 !important;" class="line"></span><span style="background: #666666 !important;" class="line"></span>
+        </div>
+      </div>
+    </div>
+    {% include 'search.html' %}
+      <div class="deznav">
+        <div class="deznav-scroll">
+          {% include 'menu.html' %}
+          <div style="background: linear-gradient(135deg, #000000 0%, #ffffff 100%);" class="add-menu-sidebar">
+            <img src="{% static 'images/icon1.png' %}" alt="" />
+            <p>Organize your menus through button bellow</p>
+            <a href="{% url 'create' %}" class="btn btn-primary btn-block light">+ Добавить телефон</a>
+          </div>
+          <div class="copyright">
+            <p><strong>Сайт для гильдии nk@</strong> © 2021 All Rights Reserved</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="content-body">
+        <div class="container-fluid">{% block content %}{% endblock %}</div>
+      </div>
+
+
+      {% include 'scripts.html' %}
+
+</body>
+</html>

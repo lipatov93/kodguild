@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-lg-14">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title" style="text-transform: none;">Телефоны</h4>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-responsive-md" style="min-width: 0px !important; display: table;">
+          <thead>
+            <tr>
+
+              <th><strong></strong></th>
+              <th><strong>NAME</strong></th>
+              <th><strong>Tel. No.</strong></th>
+              <th><strong>Wapp</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for el in tel_data %}
+            <tr>
+              <td><strong>{{forloop.counter}}</strong></td>
+              <td><div class="d-flex align-items-center"><span class="w-space-no">{{el.name}}</span></div></td>
+              <td><a href="tel:{{el.tel_namber}}">{{el.tel_namber}}</a></td>
+              <td><a href="whatsapp://send?phone={{el.tel_namber}}&abid={{el.tel_namber}}">
+                <img src="{% static 'images/whatsapp.png' %}" style="width: 55px;margin: -15px 0px;"></a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
