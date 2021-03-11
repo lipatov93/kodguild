@@ -2,7 +2,9 @@
 {% load static %}
 
 
-{% block content %}<form>
+{% block content %}
+<form>
+{% csrf_token %}
 <div class="row">
 
 <div class="col-xl-6 col-lg-6">
