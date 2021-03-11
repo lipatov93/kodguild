@@ -3,8 +3,12 @@
 
 
 {% block content %}
-<form>
+<form method="post" >
 {% csrf_token %}
+
+
+
+
 <div class="row">
 
 <div class="col-xl-6 col-lg-6">
@@ -15,10 +19,10 @@
     <div class="card-body">
       <div class="basic-form">
         <div class="form-group">
-          <input type="text" class="form-control input-default " placeholder="Ник">
+          {{ form.name }}
         </div>
         <div class="form-group">
-          <input type="text" class="form-control input-default" placeholder="Телефон">
+          {{ form.tel_namber }}
         </div>
       </div>
     </div>
@@ -27,17 +31,18 @@
 <div class="col-xl-6 col-lg-6">
   <div class="card">
     <div class="card-header">
-      <h4 class="card-title" style="text-transform: none;">Данные страхующего</h4>
+      <h4 class="card-title" style="text-transform: none;">Данные страхующего*</h4>
     </div>
     <div class="card-body">
       <div class="basic-form">
         <div class="form-group">
-          <input type="text" class="form-control input-default " placeholder="Ник">
+          {{ form.who_insures_name }}
         </div>
         <div class="form-group">
-          <input type="text" class="form-control input-default" placeholder="Телефон">
+          {{ form.who_insures_tel_namber }}
         </div>
       </div>
+      <span>* Не обязательно</span>
     </div>
   </div>
 </div>

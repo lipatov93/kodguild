@@ -8,8 +8,18 @@ def index(request):
     return render(request, 'telephones/index.html', {'title':'Главная страница', 'tel_data':tel_data})
 
 def create(request):
+    initial = {'name': '-'}
+    error = ''
+    if request.method == 'POST':
+        form = TelephonesForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            error = "Ошибка"
+
     form = TelephonesForm()
     data = {
-        'form': form
+        'form': form,
+        'error': error
     }
-    return render(request, 'telephones/create.html' data)
+    return render(request, 'telephones/create.html', data)
